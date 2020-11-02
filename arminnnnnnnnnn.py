@@ -5,6 +5,7 @@ from scipy.stats import exponweib
 from scipy.optimize import fmin
 import scipy.stats as st
 
+
 ###################################################################################
 def Mean_for_normal(lst):
     return sum(lst) / len(lst)
@@ -71,7 +72,14 @@ def get_Logarithmic_distribution_simulation_values(N,Seed,mean,dev):
 
 def get_Weibull_distribution_simulation_values(N,Seed,scale,shape):
     numpy.random.seed(Seed)
-    Weibull_distribution = weibull_min.rvs(shape , scale=scale ,size=N)
+    list = numpy.random.uniform(0,1,N)
+    Weibull_distribution=[]
+    for i in list:
+        temp1=scale
+        temp2=math.pow((-numpy.log(i)),(1/shape))
+        t=temp1*temp2
+        Weibull_distribution.append(t)
+    # Weibull_distribution = weibull_min.rvs(shape , scale=scale ,size=N)
     Weibull_distribution = [int(i) for i in Weibull_distribution]
     return Weibull_distribution
 
@@ -82,8 +90,16 @@ def get_Gumbel_distribution_simulation_values(N,Seed,mean,dev):
     return Gumbel_distribution
 
 def get_Exponential_distribution_simulation_values(N,Seed,mean):
+    # numpy.random.seed(Seed)
+    # Exponential_distribution = numpy.random.exponential(mean, size=N)
     numpy.random.seed(Seed)
-    Exponential_distribution = numpy.random.exponential(mean, size=N)
+    list = numpy.random.uniform(0, 1, N)
+    Exponential_distribution = []
+    for i in list:
+        temp1 = 1/mean
+        temp2 = (-numpy.log(i))
+        t =  temp2/temp1
+        Exponential_distribution.append(t)
     Exponential_distribution = [int(i) for i in Exponential_distribution]
     return Exponential_distribution
 
