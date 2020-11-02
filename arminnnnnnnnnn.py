@@ -46,10 +46,12 @@ def get_Normal_distribution_simulation_values(N,Seed,mean,dev):
             number1=uniform[i]
             number2=uniform[i+1]
             normal1=((-2* math.log(number1, math.e))**0.5)*math.cos(2*math.pi*number2)
+            normal1= normal1*dev+mean
             normal_distribution.append(normal1)
             normal2=((-2* math.log(number1, math.e))**0.5)*math.sin(2*math.pi*number2)
+            normal2 = normal2*dev +mean
             normal_distribution.append(normal2)
-    # normal_distribution = [int(i) for i in normal_distribution]
+    normal_distribution = [int(i) for i in normal_distribution]
     return normal_distribution
 
 
@@ -85,7 +87,11 @@ def get_Weibull_distribution_simulation_values(N,Seed,scale,shape):
 
 def get_Gumbel_distribution_simulation_values(N,Seed,mean,dev):
     numpy.random.seed(Seed)
-    Gumbel_distribution = numpy.random.gumbel(mean, dev, size=N)
+    Gumbel_distribution=[]
+    random = numpy.random.uniform(0,1,N)
+    for i in random:
+        Gumbel_distribution.append(mean-dev*math.log(-math.log(i)))
+    # Gumbel_distribution = numpy.random.gumbel(mean, dev, size=N)
     Gumbel_distribution = [int(i) for i in Gumbel_distribution]
     return Gumbel_distribution
 
