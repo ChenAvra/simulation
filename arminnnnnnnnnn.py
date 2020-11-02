@@ -37,16 +37,36 @@ def dev_for_Logarithmic(lst):
 ################################################################################################
 def get_Normal_distribution_simulation_values(N,Seed,mean,dev):
     numpy.random.seed(Seed)
-    normal_distribution = numpy.random.normal(mean, dev, N)
-    normal_distribution = [int(i) for i in normal_distribution]
+    # normal_distribution = numpy.random.normal(mean, dev, N)
+    uniform = numpy.random.uniform(0,1,N)
+    normal_distribution = []
+    for i in range(N):
+        if i%2==0:
+            number1=uniform[i]
+            number2=uniform[i+1]
+            normal1=((-2* math.log(number1, math.e))**0.5)*math.cos(2*math.pi*number2)
+            normal_distribution.append(normal1)
+            normal2=((-2* math.log(number1, math.e))**0.5)*math.sin(2*math.pi*number2)
+            normal_distribution.append(normal2)
+    # normal_distribution = [int(i) for i in normal_distribution]
     return normal_distribution
 
 
 
 def get_Logarithmic_distribution_simulation_values(N,Seed,mean,dev):
     numpy.random.seed(Seed)
-    Logarithmic_distribution = numpy.random.lognormal(mean, dev, N)
-    Logarithmic_distribution = [int(i) for i in Logarithmic_distribution]
+    uniform = numpy.random.uniform(0, 1, N)
+    Logarithmic_distribution=[]
+    for i in range(N):
+        if i%2==0:
+            number1=uniform[i]
+            number2=uniform[i+1]
+            l1=math.e**(((-math.log(number1, math.e))**0.5)*math.sin(2*math.pi*number2))
+            Logarithmic_distribution.append(l1)
+            l2=math.e**(((-math.log(number1, math.e))**0.5)*math.cos(2*math.pi*number2))
+            Logarithmic_distribution.append(l2)
+    # Logarithmic_distribution = numpy.random.lognormal(mean, dev, N)
+    # Logarithmic_distribution = [int(i) for i in Logarithmic_distribution]
     return Logarithmic_distribution
 
 def get_Weibull_distribution_simulation_values(N,Seed,scale,shape):
