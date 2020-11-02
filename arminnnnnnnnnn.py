@@ -354,4 +354,37 @@ Frequency_converter_means_interval1=[Frequency_converter_means[9],Frequency_conv
 print("Frequency_converter_means_interval1: ", Frequency_converter_means_interval1)
 print("Frequency_converter_means_interval2: ",st.norm.interval(alpha=0.90, loc=numpy.mean(Frequency_converter_means), scale=st.sem(Frequency_converter_means)))
 
+######################################################################################################################
+
+#2
+def get_min_distribution(N,Seed):
+    blade_valuse = get_Blade_simulation_values(N, Seed)
+    geerbox_values = get_Gearbox_simulation_values(N, Seed)
+    generator_values = get_Generator_simulation_values(N, Seed)
+    yaw_system_values = get_Yaw_system_simulation_values(N, Seed)
+    pitch_control_values = get_Pitch_control_system_simulation_values(N, Seed)
+    break_system_values = get_Brake_system_simulation_values(N, Seed)
+    Lubrication_system_values = get_Lubrication_system_simulation_values(N, Seed)
+    Electrical_system_values = get_Electrical_system_simulation_values(N, Seed)
+    Frequency_converter_values = get_Frequency_converter_simulation_values(N, Seed)
+    min_values=[]
+    for i in range(N):
+        min_values.append(min(blade_valuse[i],geerbox_values[i],generator_values[i],yaw_system_values[i],pitch_control_values[i],break_system_values[i],Lubrication_system_values[i],Electrical_system_values[i],Frequency_converter_values[i]))
+    return min_values;
+
+
+
+min_distribution = get_min_distribution(500,1)
+
+normal_params = get_Normal_distribution_params(min_distribution)
+print("normal_params: ", normal_params)
+logarithmic_params = get_Logarithmic_distribution_params(min_distribution)
+print("logarithmic_params: ", logarithmic_params)
+weibull_params = get_Weibull_distribution_params(min_distribution)
+print("weibull_params: ", weibull_params)
+gumbel_params = get_Gumbel_distribution_params(min_distribution)
+exponential_params = get_Exponential_distribution_params(min_distribution)
+print("exponential_params: ", exponential_params)
+
+
 
