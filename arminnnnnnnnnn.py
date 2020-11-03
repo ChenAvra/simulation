@@ -255,7 +255,7 @@ def print_all(list):
 # print("seed - 1, n - 500")
 # print_all(list)
 #
-# #C
+#C
 # numpy.random.seed(1)
 # list = numpy.random.uniform(0,1,500)
 # print("seed - 1, n - 500")
@@ -270,7 +270,7 @@ def print_all(list):
 # list = numpy.random.uniform(0,1,10000)
 # print("seed - 20, n - 10000")
 # print_all(list)
-#
+
 #
 # #D
 # N=500
@@ -421,6 +421,8 @@ def print_all(list):
 ######################################################################################################################
 
 #2
+#A
+
 def get_min_distribution(N,Seed):
     numpy.random.seed(Seed)
     list = numpy.random.uniform(0,1,N)
@@ -453,5 +455,14 @@ gumbel_params = get_Gumbel_distribution_params(min_distribution)
 exponential_params = get_Exponential_distribution_params(min_distribution)
 print("exponential_params: ", exponential_params)
 
-#
-#
+#B
+uniform = numpy.random.uniform(0,1,500)
+normal_values = get_Normal_distribution_simulation_values(uniform,normal_params[0],normal_params[1])
+logarithmic_values = get_Logarithmic_distribution_simulation_values(uniform,logarithmic_params[0],logarithmic_params[1])
+weibull_values = get_Weibull_distribution_simulation_values(uniform,weibull_params[1],weibull_params[0])
+exponential_values = get_Exponential_distribution_simulation_values(uniform,exponential_params)
+
+print(normal_values)
+print(logarithmic_values)
+print(weibull_values)
+print(exponential_values)
