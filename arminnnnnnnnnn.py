@@ -8,6 +8,7 @@ import chaospy
 
 #########################################################################################
 
+
 def Mean_for_normal(lst):
     return sum(lst) / len(lst)
 
@@ -128,7 +129,7 @@ def get_Weibull_distribution_params(values):
     return fmin(optfun, [shape, scale], xtol=0.01, ftol=0.01, disp=0)
 
 def get_Gumbel_distribution_params(values):
-    return 0 #################### to complete!!!!!!!!!!!!!!!!!
+    return st.gumbel_r.fit(values)
 
 def get_Exponential_distribution_params(values):
     return Mean_for_normal(values)
@@ -249,12 +250,12 @@ def print_all(list):
 
 
 ########################################################################################################
-# #B
+#B
 # numpy.random.seed(1)
 # list = numpy.random.uniform(0,1,500)
 # print("seed - 1, n - 500")
 # print_all(list)
-#
+
 #C
 # numpy.random.seed(1)
 # list = numpy.random.uniform(0,1,500)
@@ -271,7 +272,7 @@ def print_all(list):
 # print("seed - 20, n - 10000")
 # print_all(list)
 
-#
+
 # #D
 # N=500
 # blade_means = []
@@ -301,8 +302,8 @@ def print_all(list):
 #     gearbox_devs.append(get_Gearbox_params(get_Gearbox_simulation_values(list))[1])
 #     generator_scale.append(get_Generator_params(get_Generator_simulation_values(list))[1])
 #     generator_shape.append(get_Generator_params(get_Generator_simulation_values(list))[0])
-#     # yaw_system_mean.append(get_Yaw_system_params(get_Yaw_system_simulation_values(list))[0])
-#     # yaw_system_devs.append(get_Yaw_system_params(get_Yaw_system_simulation_values(list))[1])
+#     yaw_system_mean.append(get_Yaw_system_params(get_Yaw_system_simulation_values(list))[0])
+#     yaw_system_devs.append(get_Yaw_system_params(get_Yaw_system_simulation_values(list))[1])
 #     Pitch_control_system_means.append(get_Pitch_control_system_params(get_Pitch_control_system_simulation_values(list))[0])
 #     Pitch_control_system_devs.append(get_Pitch_control_system_params(get_Pitch_control_system_simulation_values(list))[1])
 #     Brake_system_means.append(get_Brake_system_params(get_Brake_system_simulation_values(list)))
@@ -344,17 +345,17 @@ def print_all(list):
 # print("generator_scale_interval1: ", generator_scale_interval1)
 # print("generator_scale_interval2: ",st.norm.interval(alpha=0.9, loc=numpy.mean(generator_scale), scale=st.sem(generator_scale)))
 #
-# # yaw_system_mean=sorted(yaw_system_mean,key=float)
-# # yaw_system_mean_interval1=[yaw_system_mean[9],yaw_system_mean[90]]
-# # print("yaw_system_mean_interval1: ", yaw_system_mean_interval1)
-# #print("yaw_system_mean_interval2: ",st.norm.interval(alpha=0.90, loc=numpy.mean(yaw_system_mean), scale=st.sem(yaw_system_mean)))
-# #
-# #
-# # yaw_system_devs=sorted(yaw_system_devs,key=float)
-# # yaw_system_devs_interval1=[yaw_system_devs[9],yaw_system_devs[90]]
-# # print("yaw_system_devs_interval1: ", yaw_system_devs_interval1)
-# #print("yaw_system_devs_interval2: ",st.norm.interval(alpha=0.90, loc=numpy.mean(yaw_system_devs), scale=st.sem(yaw_system_devs)))
-# #
+# yaw_system_mean=sorted(yaw_system_mean,key=float)
+# yaw_system_mean_interval1=[yaw_system_mean[9],yaw_system_mean[90]]
+# print("yaw_system_mean_interval1: ", yaw_system_mean_interval1)
+# print("yaw_system_mean_interval2: ",st.norm.interval(alpha=0.90, loc=numpy.mean(yaw_system_mean), scale=st.sem(yaw_system_mean)))
+#
+#
+# yaw_system_devs=sorted(yaw_system_devs,key=float)
+# yaw_system_devs_interval1=[yaw_system_devs[9],yaw_system_devs[90]]
+# print("yaw_system_devs_interval1: ", yaw_system_devs_interval1)
+# print("yaw_system_devs_interval2: ",st.norm.interval(alpha=0.90, loc=numpy.mean(yaw_system_devs), scale=st.sem(yaw_system_devs)))
+#
 #
 # Pitch_control_system_means=sorted(Pitch_control_system_means,key=float)
 # Pitch_control_system_means_interval1=[Pitch_control_system_means[9],Pitch_control_system_means[90]]
@@ -443,7 +444,6 @@ def get_min_distribution(N,Seed):
 
 
 min_distribution = get_min_distribution(500,1)
-print(min_distribution)
 
 normal_params = get_Normal_distribution_params(min_distribution)
 print("normal_params: ", normal_params)
@@ -452,17 +452,50 @@ print("logarithmic_params: ", logarithmic_params)
 weibull_params = get_Weibull_distribution_params(min_distribution)
 print("weibull_params: ", weibull_params)
 gumbel_params = get_Gumbel_distribution_params(min_distribution)
+print("gumbel_params: ", gumbel_params)
 exponential_params = get_Exponential_distribution_params(min_distribution)
 print("exponential_params: ", exponential_params)
 
+print("#######################################################################")
 #B
 uniform = numpy.random.uniform(0,1,500)
 normal_values = get_Normal_distribution_simulation_values(uniform,normal_params[0],normal_params[1])
+normal_values = numpy.array(normal_values)
+normal_values[normal_values < 0] = 0
 logarithmic_values = get_Logarithmic_distribution_simulation_values(uniform,logarithmic_params[0],logarithmic_params[1])
+logarithmic_values = numpy.array(logarithmic_values)
+logarithmic_values[logarithmic_values<0]=0
 weibull_values = get_Weibull_distribution_simulation_values(uniform,weibull_params[1],weibull_params[0])
+weibull_values = numpy.array(weibull_values)
+weibull_values[weibull_values<0]=0
 exponential_values = get_Exponential_distribution_simulation_values(uniform,exponential_params)
+exponential_values=numpy.array(exponential_values)
+exponential_values[exponential_values<0]=0
+gumbel_values = get_Gumbel_distribution_simulation_values(uniform,gumbel_params[0],gumbel_params[1])
+gumbel_values = numpy.array(gumbel_values)
+gumbel_values[gumbel_values<0]=0
 
-print(normal_values)
-print(logarithmic_values)
-print(weibull_values)
-print(exponential_values)
+print("normal - " , st.stats.ks_2samp(min_distribution,normal_values))
+print("logarithmic - " , st.stats.ks_2samp(min_distribution,logarithmic_values))
+print("weibull - " , st.stats.ks_2samp(min_distribution,weibull_values))
+print("exponential - " , st.stats.ks_2samp(min_distribution,exponential_values))
+print("gumbel - " , st.stats.ks_2samp(min_distribution,gumbel_values))
+print("#########################################################################")
+stat, p, dof, expected = st.chi2_contingency([min_distribution,normal_values])
+print("normal chi - " , " p -" ,p)
+stat, p, dof, expected = st.chi2_contingency([min_distribution,logarithmic_values])
+print("logarithmic chi - " , " p -" ,p)
+stat, p, dof, expected = st.chi2_contingency([min_distribution,weibull_values])
+print("weibull chi - " , " p -" ,p)
+stat, p, dof, expected = st.chi2_contingency([min_distribution,exponential_values])
+print("exponential chi - " , " p -" ,p)
+stat, p, dof, expected = st.chi2_contingency([min_distribution,gumbel_values])
+print("gumbel chi - " , " p -" ,p)
+
+print("##################################################################################")
+
+print("normal anderson - ",st.anderson_ksamp([min_distribution,normal_values]))
+print("logarithmic anderson - ",st.anderson_ksamp([min_distribution,logarithmic_values]))
+print("weibull anderson - ",st.anderson_ksamp([min_distribution,weibull_values]))
+print("exponential anderson - ",st.anderson_ksamp([min_distribution,exponential_values]))
+print("gumbel anderson - ",st.anderson_ksamp([min_distribution,gumbel_values]))
