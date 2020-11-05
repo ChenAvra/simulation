@@ -262,10 +262,10 @@ def print_all(list):
 # print("seed - 1, n - 500")
 # print_all(list)
 #
-# numpy.random.seed(20)
-# list = numpy.random.uniform(0,1,500)
-# print("seed - 20, n - 500")
-# print_all(list)
+numpy.random.seed(20)
+list = numpy.random.uniform(0,1,500)
+print("seed - 20, n - 500")
+print_all(list)
 #
 # numpy.random.seed(20)
 # list = numpy.random.uniform(0,1,10000)
@@ -293,119 +293,119 @@ def print_all(list):
 # Frequency_converter_means=[]
 #
 #
-# for number in range(200,300):
-#     numpy.random.seed(number)
-#     list = numpy.random.uniform(0,1,500)
-#     blade_means.append(get_Blade_params(get_Blade_simulation_values(list))[0])
-#     blade_devs.append(get_Blade_params(get_Blade_simulation_values(list))[1])
-#     gearbox_mean.append(get_Gearbox_params(get_Gearbox_simulation_values(list))[0])
-#     gearbox_devs.append(get_Gearbox_params(get_Gearbox_simulation_values(list))[1])
-#     generator_scale.append(get_Generator_params(get_Generator_simulation_values(list))[1])
-#     generator_shape.append(get_Generator_params(get_Generator_simulation_values(list))[0])
-#     yaw_system_mean.append(get_Yaw_system_params(get_Yaw_system_simulation_values(list))[0])
-#     yaw_system_devs.append(get_Yaw_system_params(get_Yaw_system_simulation_values(list))[1])
-#     Pitch_control_system_means.append(get_Pitch_control_system_params(get_Pitch_control_system_simulation_values(list))[0])
-#     Pitch_control_system_devs.append(get_Pitch_control_system_params(get_Pitch_control_system_simulation_values(list))[1])
-#     Brake_system_means.append(get_Brake_system_params(get_Brake_system_simulation_values(list)))
-#     Lubrication_system_shape.append(get_Lubrication_system_params(get_Lubrication_system_simulation_values(list))[0])
-#     Lubrication_system_scale.append(get_Lubrication_system_params(get_Lubrication_system_simulation_values(list))[1])
-#     Electrical_system_scale.append(get_Electrical_system_params(get_Electrical_system_simulation_values(list))[1])
-#     Electrical_system_shape.append(get_Electrical_system_params(get_Electrical_system_simulation_values(list))[0])
-#     Frequency_converter_means.append(get_Frequency_converter_params(get_Frequency_converter_simulation_values(list)))
-#
-#
-# blade_means = sorted(blade_means,key=float)
-# blade_means_interval1=[blade_means[9],blade_means[90]]
-# print("blade_means_interval1: " , blade_means_interval1)
-# print("blade_means_interval2: " , st.norm.interval(alpha=0.9, loc=numpy.mean(blade_means), scale=st.sem(blade_means)))
-#
-# blade_devs= sorted(blade_devs,key=float)
-# blade_devs_interval1=[blade_devs[9],blade_devs[90]]
-# print("blade_devs_interval1: " , blade_devs_interval1)
-# print("blade_devs_interval2: " , st.norm.interval(alpha=0.9, loc=numpy.mean(blade_devs), scale=st.sem(blade_devs)))
-#
-# gearbox_mean=sorted(gearbox_mean,key=float)
-# gearbox_mean_interval1=[gearbox_mean[9],gearbox_mean[90]]
-# print("gearbox_mean_interval1: ", gearbox_mean_interval1)
-# print("gearbox_mean_interval2: " , st.norm.interval(alpha=0.9, loc=numpy.mean(gearbox_mean), scale=st.sem(gearbox_mean)))
-#
-# gearbox_devs=sorted(gearbox_devs,key=float)
-# gearbox_devs_interval1=[gearbox_devs[9],gearbox_devs[90]]
-# print("gearbox_devs_interval1: ", gearbox_devs_interval1)
-# print("gearbox_devs_interval2: " , st.norm.interval(alpha=0.9, loc=numpy.mean(gearbox_devs), scale=st.sem(gearbox_devs)))
-#
-# generator_shape=sorted(generator_shape,key=float)
-# generator_shape_interval1=[generator_shape[9],generator_shape[90]]
-# print("generator_shape_interval1: ", generator_shape_interval1)
-# print("generator_shape_interval2: ",st.norm.interval(alpha=0.9, loc=numpy.mean(generator_shape), scale=st.sem(generator_shape)))
-#
-#
-# generator_scale=sorted(generator_scale,key=float)
-# generator_scale_interval1=[generator_scale[9],generator_scale[90]]
-# print("generator_scale_interval1: ", generator_scale_interval1)
-# print("generator_scale_interval2: ",st.norm.interval(alpha=0.9, loc=numpy.mean(generator_scale), scale=st.sem(generator_scale)))
-#
-# yaw_system_mean=sorted(yaw_system_mean,key=float)
-# yaw_system_mean_interval1=[yaw_system_mean[9],yaw_system_mean[90]]
-# print("yaw_system_mean_interval1: ", yaw_system_mean_interval1)
-# print("yaw_system_mean_interval2: ",st.norm.interval(alpha=0.90, loc=numpy.mean(yaw_system_mean), scale=st.sem(yaw_system_mean)))
-#
-#
-# yaw_system_devs=sorted(yaw_system_devs,key=float)
-# yaw_system_devs_interval1=[yaw_system_devs[9],yaw_system_devs[90]]
-# print("yaw_system_devs_interval1: ", yaw_system_devs_interval1)
-# print("yaw_system_devs_interval2: ",st.norm.interval(alpha=0.90, loc=numpy.mean(yaw_system_devs), scale=st.sem(yaw_system_devs)))
-#
-#
-# Pitch_control_system_means=sorted(Pitch_control_system_means,key=float)
-# Pitch_control_system_means_interval1=[Pitch_control_system_means[9],Pitch_control_system_means[90]]
-# print("Pitch_control_system_means_interval1: ", Pitch_control_system_means_interval1)
-# print("Pitch_control_system_means_interval2: ",st.norm.interval(alpha=0.9, loc=numpy.mean(Pitch_control_system_means), scale=st.sem(Pitch_control_system_means)))
-#
-# Pitch_control_system_devs=sorted(Pitch_control_system_devs,key=float)
-# Pitch_control_system_devs_interval1=[Pitch_control_system_devs[9],Pitch_control_system_devs[90]]
-# print("Pitch_control_system_devs_interval1: ", Pitch_control_system_devs_interval1)
-# print("Pitch_control_system_devs_interval2: ",st.norm.interval(alpha=0.9, loc=numpy.mean(Pitch_control_system_devs), scale=st.sem(Pitch_control_system_devs)))
-#
-# Brake_system_means=sorted(Brake_system_means,key=float)
-# Brake_system_means_interval1=[Brake_system_means[9],Brake_system_means[90]]
-# print("Brake_system_means_interval1: ", Brake_system_means_interval1)
-# print("Brake_system_means_interval2: ",st.norm.interval(alpha=0.9, loc=numpy.mean(Brake_system_means), scale=st.sem(Brake_system_means)))
-#
-# Lubrication_system_scale=sorted(Lubrication_system_scale,key=float)
-# Lubrication_system_scale_interval1=[Lubrication_system_scale[9],Lubrication_system_scale[90]]
-# print("Lubrication_system_scale_interval1: ", Lubrication_system_scale_interval1)
-# print("Lubrication_system_scale_interval2: ",st.norm.interval(alpha=0.9, loc=numpy.mean(Lubrication_system_scale), scale=st.sem(Lubrication_system_scale)))
-#
-# Lubrication_system_shape=sorted(Lubrication_system_shape,key=float)
-# Lubrication_system_shape_interval1=[Lubrication_system_shape[9],Lubrication_system_shape[90]]
-# print("Lubrication_system_shape_interval1: " ,Lubrication_system_shape_interval1)
-# print("Lubrication_system_shape_interval2: " ,st.norm.interval(alpha=0.9, loc=numpy.mean(Lubrication_system_shape), scale=st.sem(Lubrication_system_shape)))
-#
-# Electrical_system_scale=sorted(Electrical_system_scale,key=float)
-# Electrical_system_scale_interval1=[Electrical_system_scale[9],Electrical_system_scale[90]]
-# print("Electrical_system_scale_interval1: ", Electrical_system_scale_interval1)
-# print("Electrical_system_scale_interval2: ",st.norm.interval(alpha=0.9, loc=numpy.mean(Electrical_system_scale), scale=st.sem(Electrical_system_scale)))
-#
-# Electrical_system_shape=sorted(Electrical_system_shape,key=float)
-# Electrical_system_shape_interval1=[Electrical_system_shape[9],Electrical_system_shape[90]]
-# print("Electrical_system_shape_interval1: ",Electrical_system_shape_interval1)
-# print("Electrical_system_shape_interval2: ", st.norm.interval(alpha=0.9, loc=numpy.mean(Electrical_system_shape), scale=st.sem(Electrical_system_shape)))
-#
-#
-# Frequency_converter_means=sorted(Frequency_converter_means,key=float)
-# Frequency_converter_means_interval1=[Frequency_converter_means[9],Frequency_converter_means[90]]
-# print("Frequency_converter_means_interval1: ", Frequency_converter_means_interval1)
-# print("Frequency_converter_means_interval2: ",st.norm.interval(alpha=0.9, loc=numpy.mean(Frequency_converter_means), scale=st.sem(Frequency_converter_means)))
-#
+for number in range(200,300):
+    numpy.random.seed(number)
+    list = numpy.random.uniform(0,1,500)
+    blade_means.append(get_Blade_params(get_Blade_simulation_values(list))[0])
+    blade_devs.append(get_Blade_params(get_Blade_simulation_values(list))[1])
+    gearbox_mean.append(get_Gearbox_params(get_Gearbox_simulation_values(list))[0])
+    gearbox_devs.append(get_Gearbox_params(get_Gearbox_simulation_values(list))[1])
+    generator_scale.append(get_Generator_params(get_Generator_simulation_values(list))[1])
+    generator_shape.append(get_Generator_params(get_Generator_simulation_values(list))[0])
+    yaw_system_mean.append(get_Yaw_system_params(get_Yaw_system_simulation_values(list))[0])
+    yaw_system_devs.append(get_Yaw_system_params(get_Yaw_system_simulation_values(list))[1])
+    Pitch_control_system_means.append(get_Pitch_control_system_params(get_Pitch_control_system_simulation_values(list))[0])
+    Pitch_control_system_devs.append(get_Pitch_control_system_params(get_Pitch_control_system_simulation_values(list))[1])
+    Brake_system_means.append(get_Brake_system_params(get_Brake_system_simulation_values(list)))
+    Lubrication_system_shape.append(get_Lubrication_system_params(get_Lubrication_system_simulation_values(list))[0])
+    Lubrication_system_scale.append(get_Lubrication_system_params(get_Lubrication_system_simulation_values(list))[1])
+    Electrical_system_scale.append(get_Electrical_system_params(get_Electrical_system_simulation_values(list))[1])
+    Electrical_system_shape.append(get_Electrical_system_params(get_Electrical_system_simulation_values(list))[0])
+    Frequency_converter_means.append(get_Frequency_converter_params(get_Frequency_converter_simulation_values(list)))
+
+
+blade_means = sorted(blade_means,key=float)
+blade_means_interval1=[blade_means[9],blade_means[90]]
+print("blade_means_interval1: " , blade_means_interval1)
+print("blade_means_interval2: " , st.norm.interval(alpha=0.9, loc=numpy.mean(blade_means), scale=st.sem(blade_means)))
+
+blade_devs= sorted(blade_devs,key=float)
+blade_devs_interval1=[blade_devs[9],blade_devs[90]]
+print("blade_devs_interval1: " , blade_devs_interval1)
+print("blade_devs_interval2: " , st.norm.interval(alpha=0.9, loc=numpy.mean(blade_devs), scale=st.sem(blade_devs)))
+
+gearbox_mean=sorted(gearbox_mean,key=float)
+gearbox_mean_interval1=[gearbox_mean[9],gearbox_mean[90]]
+print("gearbox_mean_interval1: ", gearbox_mean_interval1)
+print("gearbox_mean_interval2: " , st.norm.interval(alpha=0.9, loc=numpy.mean(gearbox_mean), scale=st.sem(gearbox_mean)))
+
+gearbox_devs=sorted(gearbox_devs,key=float)
+gearbox_devs_interval1=[gearbox_devs[9],gearbox_devs[90]]
+print("gearbox_devs_interval1: ", gearbox_devs_interval1)
+print("gearbox_devs_interval2: " , st.norm.interval(alpha=0.9, loc=numpy.mean(gearbox_devs), scale=st.sem(gearbox_devs)))
+
+generator_shape=sorted(generator_shape,key=float)
+generator_shape_interval1=[generator_shape[9],generator_shape[90]]
+print("generator_shape_interval1: ", generator_shape_interval1)
+print("generator_shape_interval2: ",st.norm.interval(alpha=0.9, loc=numpy.mean(generator_shape), scale=st.sem(generator_shape)))
+
+
+generator_scale=sorted(generator_scale,key=float)
+generator_scale_interval1=[generator_scale[9],generator_scale[90]]
+print("generator_scale_interval1: ", generator_scale_interval1)
+print("generator_scale_interval2: ",st.norm.interval(alpha=0.9, loc=numpy.mean(generator_scale), scale=st.sem(generator_scale)))
+
+yaw_system_mean=sorted(yaw_system_mean,key=float)
+yaw_system_mean_interval1=[yaw_system_mean[9],yaw_system_mean[90]]
+print("yaw_system_mean_interval1: ", yaw_system_mean_interval1)
+print("yaw_system_mean_interval2: ",st.norm.interval(alpha=0.90, loc=numpy.mean(yaw_system_mean), scale=st.sem(yaw_system_mean)))
+
+
+yaw_system_devs=sorted(yaw_system_devs,key=float)
+yaw_system_devs_interval1=[yaw_system_devs[9],yaw_system_devs[90]]
+print("yaw_system_devs_interval1: ", yaw_system_devs_interval1)
+print("yaw_system_devs_interval2: ",st.norm.interval(alpha=0.90, loc=numpy.mean(yaw_system_devs), scale=st.sem(yaw_system_devs)))
+
+
+Pitch_control_system_means=sorted(Pitch_control_system_means,key=float)
+Pitch_control_system_means_interval1=[Pitch_control_system_means[9],Pitch_control_system_means[90]]
+print("Pitch_control_system_means_interval1: ", Pitch_control_system_means_interval1)
+print("Pitch_control_system_means_interval2: ",st.norm.interval(alpha=0.9, loc=numpy.mean(Pitch_control_system_means), scale=st.sem(Pitch_control_system_means)))
+
+Pitch_control_system_devs=sorted(Pitch_control_system_devs,key=float)
+Pitch_control_system_devs_interval1=[Pitch_control_system_devs[9],Pitch_control_system_devs[90]]
+print("Pitch_control_system_devs_interval1: ", Pitch_control_system_devs_interval1)
+print("Pitch_control_system_devs_interval2: ",st.norm.interval(alpha=0.9, loc=numpy.mean(Pitch_control_system_devs), scale=st.sem(Pitch_control_system_devs)))
+
+Brake_system_means=sorted(Brake_system_means,key=float)
+Brake_system_means_interval1=[Brake_system_means[9],Brake_system_means[90]]
+print("Brake_system_means_interval1: ", Brake_system_means_interval1)
+print("Brake_system_means_interval2: ",st.norm.interval(alpha=0.9, loc=numpy.mean(Brake_system_means), scale=st.sem(Brake_system_means)))
+
+Lubrication_system_scale=sorted(Lubrication_system_scale,key=float)
+Lubrication_system_scale_interval1=[Lubrication_system_scale[9],Lubrication_system_scale[90]]
+print("Lubrication_system_scale_interval1: ", Lubrication_system_scale_interval1)
+print("Lubrication_system_scale_interval2: ",st.norm.interval(alpha=0.9, loc=numpy.mean(Lubrication_system_scale), scale=st.sem(Lubrication_system_scale)))
+
+Lubrication_system_shape=sorted(Lubrication_system_shape,key=float)
+Lubrication_system_shape_interval1=[Lubrication_system_shape[9],Lubrication_system_shape[90]]
+print("Lubrication_system_shape_interval1: " ,Lubrication_system_shape_interval1)
+print("Lubrication_system_shape_interval2: " ,st.norm.interval(alpha=0.9, loc=numpy.mean(Lubrication_system_shape), scale=st.sem(Lubrication_system_shape)))
+
+Electrical_system_scale=sorted(Electrical_system_scale,key=float)
+Electrical_system_scale_interval1=[Electrical_system_scale[9],Electrical_system_scale[90]]
+print("Electrical_system_scale_interval1: ", Electrical_system_scale_interval1)
+print("Electrical_system_scale_interval2: ",st.norm.interval(alpha=0.9, loc=numpy.mean(Electrical_system_scale), scale=st.sem(Electrical_system_scale)))
+
+Electrical_system_shape=sorted(Electrical_system_shape,key=float)
+Electrical_system_shape_interval1=[Electrical_system_shape[9],Electrical_system_shape[90]]
+print("Electrical_system_shape_interval1: ",Electrical_system_shape_interval1)
+print("Electrical_system_shape_interval2: ", st.norm.interval(alpha=0.9, loc=numpy.mean(Electrical_system_shape), scale=st.sem(Electrical_system_shape)))
+
+
+Frequency_converter_means=sorted(Frequency_converter_means,key=float)
+Frequency_converter_means_interval1=[Frequency_converter_means[9],Frequency_converter_means[90]]
+print("Frequency_converter_means_interval1: ", Frequency_converter_means_interval1)
+print("Frequency_converter_means_interval2: ",st.norm.interval(alpha=0.9, loc=numpy.mean(Frequency_converter_means), scale=st.sem(Frequency_converter_means)))
+
 
 ###################################################################################################################################################
 #E
 #
 # uniform = chaospy.Uniform(0,1)
 # #20 numbers
-# list = uniform.sample(20, rule='halton')
-# print("halton 20 numbers")
+# list = uniform.sample(50, rule='halton')
+# print("halton 50 numbers")
 # print_all(list)
 #
 # #200
@@ -424,78 +424,78 @@ def print_all(list):
 #2
 #A
 
-def get_min_distribution(N,Seed):
-    numpy.random.seed(Seed)
-    list = numpy.random.uniform(0,1,N)
-    blade_valuse = get_Blade_simulation_values(list)
-    geerbox_values = get_Gearbox_simulation_values(list)
-    generator_values = get_Generator_simulation_values(list)
-    yaw_system_values = get_Yaw_system_simulation_values(list)
-    pitch_control_values = get_Pitch_control_system_simulation_values(list)
-    break_system_values = get_Brake_system_simulation_values(list)
-    Lubrication_system_values = get_Lubrication_system_simulation_values(list)
-    Electrical_system_values = get_Electrical_system_simulation_values(list)
-    Frequency_converter_values = get_Frequency_converter_simulation_values(list)
-    min_values=[]
-    for i in range(N):
-        min_values.append(min(blade_valuse[i],geerbox_values[i],generator_values[i],yaw_system_values[i],pitch_control_values[i],break_system_values[i],Lubrication_system_values[i],Electrical_system_values[i],Frequency_converter_values[i]))
-    return min_values;
-
-
-
-min_distribution = get_min_distribution(500,1)
-
-normal_params = get_Normal_distribution_params(min_distribution)
-print("normal_params: ", normal_params)
-logarithmic_params = get_Logarithmic_distribution_params(min_distribution)
-print("logarithmic_params: ", logarithmic_params)
-weibull_params = get_Weibull_distribution_params(min_distribution)
-print("weibull_params: ", weibull_params)
-gumbel_params = get_Gumbel_distribution_params(min_distribution)
-print("gumbel_params: ", gumbel_params)
-exponential_params = get_Exponential_distribution_params(min_distribution)
-print("exponential_params: ", exponential_params)
-
-print("#######################################################################")
-#B
-uniform = numpy.random.uniform(0,1,500)
-normal_values = get_Normal_distribution_simulation_values(uniform,normal_params[0],normal_params[1])
-normal_values = numpy.array(normal_values)
-normal_values[normal_values < 0] = 0
-logarithmic_values = get_Logarithmic_distribution_simulation_values(uniform,logarithmic_params[0],logarithmic_params[1])
-logarithmic_values = numpy.array(logarithmic_values)
-logarithmic_values[logarithmic_values<0]=0
-weibull_values = get_Weibull_distribution_simulation_values(uniform,weibull_params[1],weibull_params[0])
-weibull_values = numpy.array(weibull_values)
-weibull_values[weibull_values<0]=0
-exponential_values = get_Exponential_distribution_simulation_values(uniform,exponential_params)
-exponential_values=numpy.array(exponential_values)
-exponential_values[exponential_values<0]=0
-gumbel_values = get_Gumbel_distribution_simulation_values(uniform,gumbel_params[0],gumbel_params[1])
-gumbel_values = numpy.array(gumbel_values)
-gumbel_values[gumbel_values<0]=0
-
-print("normal - " , st.stats.ks_2samp(min_distribution,normal_values))
-print("logarithmic - " , st.stats.ks_2samp(min_distribution,logarithmic_values))
-print("weibull - " , st.stats.ks_2samp(min_distribution,weibull_values))
-print("exponential - " , st.stats.ks_2samp(min_distribution,exponential_values))
-print("gumbel - " , st.stats.ks_2samp(min_distribution,gumbel_values))
-print("#########################################################################")
-stat, p, dof, expected = st.chi2_contingency([min_distribution,normal_values])
-print("normal chi - " , " p -" ,p)
-stat, p, dof, expected = st.chi2_contingency([min_distribution,logarithmic_values])
-print("logarithmic chi - " , " p -" ,p)
-stat, p, dof, expected = st.chi2_contingency([min_distribution,weibull_values])
-print("weibull chi - " , " p -" ,p)
-stat, p, dof, expected = st.chi2_contingency([min_distribution,exponential_values])
-print("exponential chi - " , " p -" ,p)
-stat, p, dof, expected = st.chi2_contingency([min_distribution,gumbel_values])
-print("gumbel chi - " , " p -" ,p)
-
-print("##################################################################################")
-
-print("normal anderson - ",st.anderson_ksamp([min_distribution,normal_values]))
-print("logarithmic anderson - ",st.anderson_ksamp([min_distribution,logarithmic_values]))
-print("weibull anderson - ",st.anderson_ksamp([min_distribution,weibull_values]))
-print("exponential anderson - ",st.anderson_ksamp([min_distribution,exponential_values]))
-print("gumbel anderson - ",st.anderson_ksamp([min_distribution,gumbel_values]))
+# def get_min_distribution(N,Seed):
+#     numpy.random.seed(Seed)
+#     list = numpy.random.uniform(0,1,N)
+#     blade_valuse = get_Blade_simulation_values(list)
+#     geerbox_values = get_Gearbox_simulation_values(list)
+#     generator_values = get_Generator_simulation_values(list)
+#     yaw_system_values = get_Yaw_system_simulation_values(list)
+#     pitch_control_values = get_Pitch_control_system_simulation_values(list)
+#     break_system_values = get_Brake_system_simulation_values(list)
+#     Lubrication_system_values = get_Lubrication_system_simulation_values(list)
+#     Electrical_system_values = get_Electrical_system_simulation_values(list)
+#     Frequency_converter_values = get_Frequency_converter_simulation_values(list)
+#     min_values=[]
+#     for i in range(N):
+#         min_values.append(min(blade_valuse[i],geerbox_values[i],generator_values[i],yaw_system_values[i],pitch_control_values[i],break_system_values[i],Lubrication_system_values[i],Electrical_system_values[i],Frequency_converter_values[i]))
+#     return min_values;
+#
+#
+#
+# min_distribution = get_min_distribution(500,1)
+#
+# normal_params = get_Normal_distribution_params(min_distribution)
+# print("normal_params: ", normal_params)
+# logarithmic_params = get_Logarithmic_distribution_params(min_distribution)
+# print("logarithmic_params: ", logarithmic_params)
+# weibull_params = get_Weibull_distribution_params(min_distribution)
+# print("weibull_params: ", weibull_params)
+# gumbel_params = get_Gumbel_distribution_params(min_distribution)
+# print("gumbel_params: ", gumbel_params)
+# exponential_params = get_Exponential_distribution_params(min_distribution)
+# print("exponential_params: ", exponential_params)
+#
+# print("#######################################################################")
+# #B
+# uniform = numpy.random.uniform(0,1,500)
+# normal_values = get_Normal_distribution_simulation_values(uniform,normal_params[0],normal_params[1])
+# normal_values = numpy.array(normal_values)
+# normal_values[normal_values < 0] = 0
+# logarithmic_values = get_Logarithmic_distribution_simulation_values(uniform,logarithmic_params[0],logarithmic_params[1])
+# logarithmic_values = numpy.array(logarithmic_values)
+# logarithmic_values[logarithmic_values<0]=0
+# weibull_values = get_Weibull_distribution_simulation_values(uniform,weibull_params[1],weibull_params[0])
+# weibull_values = numpy.array(weibull_values)
+# weibull_values[weibull_values<0]=0
+# exponential_values = get_Exponential_distribution_simulation_values(uniform,exponential_params)
+# exponential_values=numpy.array(exponential_values)
+# exponential_values[exponential_values<0]=0
+# gumbel_values = get_Gumbel_distribution_simulation_values(uniform,gumbel_params[0],gumbel_params[1])
+# gumbel_values = numpy.array(gumbel_values)
+# gumbel_values[gumbel_values<0]=0
+#
+# print("normal - " , st.stats.ks_2samp(min_distribution,normal_values))
+# print("logarithmic - " , st.stats.ks_2samp(min_distribution,logarithmic_values))
+# print("weibull - " , st.stats.ks_2samp(min_distribution,weibull_values))
+# print("exponential - " , st.stats.ks_2samp(min_distribution,exponential_values))
+# print("gumbel - " , st.stats.ks_2samp(min_distribution,gumbel_values))
+# print("#########################################################################")
+# stat, p, dof, expected = st.chi2_contingency([min_distribution,normal_values])
+# print("normal chi - " , " p -" ,p)
+# stat, p, dof, expected = st.chi2_contingency([min_distribution,logarithmic_values])
+# print("logarithmic chi - " , " p -" ,p)
+# stat, p, dof, expected = st.chi2_contingency([min_distribution,weibull_values])
+# print("weibull chi - " , " p -" ,p)
+# stat, p, dof, expected = st.chi2_contingency([min_distribution,exponential_values])
+# print("exponential chi - " , " p -" ,p)
+# stat, p, dof, expected = st.chi2_contingency([min_distribution,gumbel_values])
+# print("gumbel chi - " , " p -" ,p)
+#
+# print("##################################################################################")
+#
+# print("normal anderson - ",st.anderson_ksamp([min_distribution,normal_values]))
+# print("logarithmic anderson - ",st.anderson_ksamp([min_distribution,logarithmic_values]))
+# print("weibull anderson - ",st.anderson_ksamp([min_distribution,weibull_values]))
+# print("exponential anderson - ",st.anderson_ksamp([min_distribution,exponential_values]))
+# print("gumbel anderson - ",st.anderson_ksamp([min_distribution,gumbel_values]))
