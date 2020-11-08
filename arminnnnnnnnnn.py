@@ -281,8 +281,8 @@ def print_all(list):
 # print("seed - 20, n - 10000")
 # print_all(list)
 
-
-#D
+#
+# #D
 # N=500
 # blade_means = []
 # blade_devs=[]
@@ -324,89 +324,89 @@ def print_all(list):
 #
 #
 # blade_means = sorted(blade_means,key=float)
-# blade_means_interval1=[blade_means[9],blade_means[90]]
+# blade_means_interval1=[blade_means[4],blade_means[94]]
 # print("blade_means_interval1: " , blade_means_interval1)
 # print("blade_means_interval2: " , st.norm.interval(alpha=0.9, loc=numpy.mean(blade_means), scale=st.sem(blade_means)))
 #
 # blade_devs= sorted(blade_devs,key=float)
-# blade_devs_interval1=[blade_devs[9],blade_devs[90]]
+# blade_devs_interval1=[blade_devs[4],blade_devs[94]]
 # print("blade_devs_interval1: " , blade_devs_interval1)
 # print("blade_devs_interval2: " , st.norm.interval(alpha=0.9, loc=numpy.mean(blade_devs), scale=st.sem(blade_devs)))
 #
 # gearbox_mean=sorted(gearbox_mean,key=float)
-# gearbox_mean_interval1=[gearbox_mean[9],gearbox_mean[90]]
+# gearbox_mean_interval1=[gearbox_mean[4],gearbox_mean[94]]
 # print("gearbox_mean_interval1: ", gearbox_mean_interval1)
 # print("gearbox_mean_interval2: " , st.norm.interval(alpha=0.9, loc=numpy.mean(gearbox_mean), scale=st.sem(gearbox_mean)))
 #
 # gearbox_devs=sorted(gearbox_devs,key=float)
-# gearbox_devs_interval1=[gearbox_devs[9],gearbox_devs[90]]
+# gearbox_devs_interval1=[gearbox_devs[4],gearbox_devs[94]]
 # print("gearbox_devs_interval1: ", gearbox_devs_interval1)
 # print("gearbox_devs_interval2: " , st.norm.interval(alpha=0.9, loc=numpy.mean(gearbox_devs), scale=st.sem(gearbox_devs)))
 #
 # generator_shape=sorted(generator_shape,key=float)
-# generator_shape_interval1=[generator_shape[9],generator_shape[90]]
+# generator_shape_interval1=[generator_shape[4],generator_shape[94]]
 # print("generator_shape_interval1: ", generator_shape_interval1)
 # print("generator_shape_interval2: ",st.norm.interval(alpha=0.9, loc=numpy.mean(generator_shape), scale=st.sem(generator_shape)))
 #
 #
 # generator_scale=sorted(generator_scale,key=float)
-# generator_scale_interval1=[generator_scale[9],generator_scale[90]]
+# generator_scale_interval1=[generator_scale[4],generator_scale[94]]
 # print("generator_scale_interval1: ", generator_scale_interval1)
 # print("generator_scale_interval2: ",st.norm.interval(alpha=0.9, loc=numpy.mean(generator_scale), scale=st.sem(generator_scale)))
 #
 # yaw_system_mean=sorted(yaw_system_mean,key=float)
-# yaw_system_mean_interval1=[yaw_system_mean[9],yaw_system_mean[90]]
+# yaw_system_mean_interval1=[yaw_system_mean[4],yaw_system_mean[94]]
 # print("yaw_system_mean_interval1: ", yaw_system_mean_interval1)
 # print("yaw_system_mean_interval2: ",st.norm.interval(alpha=0.90, loc=numpy.mean(yaw_system_mean), scale=st.sem(yaw_system_mean)))
 #
 #
 # yaw_system_devs=sorted(yaw_system_devs,key=float)
-# yaw_system_devs_interval1=[yaw_system_devs[9],yaw_system_devs[90]]
+# yaw_system_devs_interval1=[yaw_system_devs[4],yaw_system_devs[94]]
 # print("yaw_system_devs_interval1: ", yaw_system_devs_interval1)
 # print("yaw_system_devs_interval2: ",st.norm.interval(alpha=0.90, loc=numpy.mean(yaw_system_devs), scale=st.sem(yaw_system_devs)))
 #
 #
 # Pitch_control_system_means=sorted(Pitch_control_system_means,key=float)
-# Pitch_control_system_means_interval1=[Pitch_control_system_means[9],Pitch_control_system_means[90]]
+# Pitch_control_system_means_interval1=[Pitch_control_system_means[4],Pitch_control_system_means[94]]
 # print("Pitch_control_system_means_interval1: ", Pitch_control_system_means_interval1)
 # print("Pitch_control_system_means_interval2: ",st.norm.interval(alpha=0.9, loc=numpy.mean(Pitch_control_system_means), scale=st.sem(Pitch_control_system_means)))
 #
 # Pitch_control_system_devs=sorted(Pitch_control_system_devs,key=float)
-# Pitch_control_system_devs_interval1=[Pitch_control_system_devs[9],Pitch_control_system_devs[90]]
+# Pitch_control_system_devs_interval1=[Pitch_control_system_devs[4],Pitch_control_system_devs[94]]
 # print("Pitch_control_system_devs_interval1: ", Pitch_control_system_devs_interval1)
 # print("Pitch_control_system_devs_interval2: ",st.norm.interval(alpha=0.9, loc=numpy.mean(Pitch_control_system_devs), scale=st.sem(Pitch_control_system_devs)))
 #
 # Brake_system_means=sorted(Brake_system_means,key=float)
-# Brake_system_means_interval1=[Brake_system_means[9],Brake_system_means[90]]
+# Brake_system_means_interval1=[Brake_system_means[4],Brake_system_means[94]]
 # print("Brake_system_means_interval1: ", Brake_system_means_interval1)
 # print("Brake_system_means_interval2: ",st.norm.interval(alpha=0.9, loc=numpy.mean(Brake_system_means), scale=st.sem(Brake_system_means)))
 #
 # Lubrication_system_scale=sorted(Lubrication_system_scale,key=float)
-# Lubrication_system_scale_interval1=[Lubrication_system_scale[9],Lubrication_system_scale[90]]
+# Lubrication_system_scale_interval1=[Lubrication_system_scale[4],Lubrication_system_scale[94]]
 # print("Lubrication_system_scale_interval1: ", Lubrication_system_scale_interval1)
 # print("Lubrication_system_scale_interval2: ",st.norm.interval(alpha=0.9, loc=numpy.mean(Lubrication_system_scale), scale=st.sem(Lubrication_system_scale)))
 #
 # Lubrication_system_shape=sorted(Lubrication_system_shape,key=float)
-# Lubrication_system_shape_interval1=[Lubrication_system_shape[9],Lubrication_system_shape[90]]
+# Lubrication_system_shape_interval1=[Lubrication_system_shape[4],Lubrication_system_shape[94]]
 # print("Lubrication_system_shape_interval1: " ,Lubrication_system_shape_interval1)
 # print("Lubrication_system_shape_interval2: " ,st.norm.interval(alpha=0.9, loc=numpy.mean(Lubrication_system_shape), scale=st.sem(Lubrication_system_shape)))
 #
 # Electrical_system_scale=sorted(Electrical_system_scale,key=float)
-# Electrical_system_scale_interval1=[Electrical_system_scale[9],Electrical_system_scale[90]]
+# Electrical_system_scale_interval1=[Electrical_system_scale[4],Electrical_system_scale[94]]
 # print("Electrical_system_scale_interval1: ", Electrical_system_scale_interval1)
 # print("Electrical_system_scale_interval2: ",st.norm.interval(alpha=0.9, loc=numpy.mean(Electrical_system_scale), scale=st.sem(Electrical_system_scale)))
 #
 # Electrical_system_shape=sorted(Electrical_system_shape,key=float)
-# Electrical_system_shape_interval1=[Electrical_system_shape[9],Electrical_system_shape[90]]
+# Electrical_system_shape_interval1=[Electrical_system_shape[4],Electrical_system_shape[94]]
 # print("Electrical_system_shape_interval1: ",Electrical_system_shape_interval1)
 # print("Electrical_system_shape_interval2: ", st.norm.interval(alpha=0.9, loc=numpy.mean(Electrical_system_shape), scale=st.sem(Electrical_system_shape)))
 #
 #
 # Frequency_converter_means=sorted(Frequency_converter_means,key=float)
-# Frequency_converter_means_interval1=[Frequency_converter_means[9],Frequency_converter_means[90]]
+# Frequency_converter_means_interval1=[Frequency_converter_means[4],Frequency_converter_means[94]]
 # print("Frequency_converter_means_interval1: ", Frequency_converter_means_interval1)
 # print("Frequency_converter_means_interval2: ",st.norm.interval(alpha=0.9, loc=numpy.mean(Frequency_converter_means), scale=st.sem(Frequency_converter_means)))
-
+#
 
 ###################################################################################################################################################
 #E
@@ -452,7 +452,7 @@ def get_min_distribution(N,Seed):
 
 
 
-min_distribution = get_min_distribution(500,1)
+min_distribution = get_min_distribution(10000,1)
 print(min_distribution)
 
 normal_params = get_Normal_distribution_params(min_distribution)
@@ -468,9 +468,9 @@ print("exponential_params: ", exponential_params)
 gumbel_min_params = get_gumbel_min_params(min_distribution)
 print("gumbel_min_params: ", gumbel_min_params)
 
-# print("#######################################################################")
-# #B
-uniform = numpy.random.uniform(0,1,500)
+print("#######################################################################")
+#B
+uniform = numpy.random.uniform(0,1,10000)
 normal_values = get_Normal_distribution_simulation_values(uniform,normal_params[0],normal_params[1])
 normal_values = numpy.array(normal_values)
 normal_values[normal_values < 0] = 0
@@ -486,7 +486,7 @@ exponential_values[exponential_values<0]=0
 gumbel_values = get_Gumbel_distribution_simulation_values(uniform,gumbel_params[0],gumbel_params[1])
 gumbel_values = numpy.array(gumbel_values)
 gumbel_values[gumbel_values<0]=0
-gumbel_min_values = numpy.random.gumbel(loc=gumbel_min_params[0],scale=gumbel_min_params[1],size=500)
+gumbel_min_values = numpy.random.gumbel(loc=gumbel_min_params[0],scale=gumbel_min_params[1],size=10000)
 
 print("normal - " , st.stats.ks_2samp(min_distribution,normal_values))
 print("logarithmic - " , st.stats.ks_2samp(min_distribution,logarithmic_values))
@@ -500,12 +500,8 @@ def get_interval_frequencies(array_x,array_y):
     min=numpy.amin([numpy.amin(array_x),numpy.amin(array_y)])
     max=numpy.amax([numpy.amax(array_x),numpy.amax(array_y)])
     intervals=numpy.linspace(min,max,num=5)
-    print(intervals)
     min_array, _ = numpy.histogram(array_x, bins=intervals)
-    print(min_array)
     list_array, _ =numpy.histogram(array_y, bins=intervals)
-    print((list_array))
-
     return min_array,list_array
 
 
@@ -522,9 +518,12 @@ print("weibull chi - " , " p -" ,st.chisquare(min_histog,f_exp=weibull_histo))
 min_histog,expo_histo=get_interval_frequencies(min_distribution,exponential_values)
 # stat, p, dof, expected = st.chisquare(min_histog,f_exp=expo_histo)
 print("exponential chi - " , " p -" ,st.chisquare(min_histog,f_exp=expo_histo))
-min_histog,gumbel_histo=get_interval_frequencies(min_distribution,exponential_values)
+min_histog,gumbel_histo=get_interval_frequencies(min_distribution,gumbel_values)
 # stat, p, dof, expected = st.chisquare(min_histog,f_exp=gumbel_histo)
 print("gumbel chi - " , " p -" ,st.chisquare(min_histog,f_exp=gumbel_histo))
+min_histog,gumbel_histo=get_interval_frequencies(min_distribution,gumbel_min_values)
+# stat, p, dof, expected = st.chisquare(min_histog,f_exp=gumbel_histo)
+print("gumbel_min chi - " , " p -" ,st.chisquare(min_histog,f_exp=gumbel_histo))
 
 print("##################################################################################")
 
@@ -533,3 +532,4 @@ print("logarithmic anderson - ",st.anderson(min_distribution,"logistic"))
 print("weibull anderson - ",st.anderson_ksamp([min_distribution,weibull_values]))
 print("exponential anderson - ",st.anderson(min_distribution,"expon"))
 print("gumbel anderson - ",st.anderson(min_distribution,"gumbel"))
+print("gumbel_min anderson - ",st.anderson_ksamp([min_distribution,gumbel_min_values]))
