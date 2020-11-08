@@ -38,6 +38,15 @@ def dev_for_Logarithmic(lst):
     return sum
 
 ################################################################################################
+
+def get_gumbel_min_params(list):
+    x = Mean_for_normal(list)
+    s = dev_for_normal(list)
+    scale = (s*(6**0.5))/math.pi
+    location = x + 0.45006*s
+    return [location,scale]
+
+
 def get_Normal_distribution_simulation_values(uniform,mean,dev):
     # numpy.random.seed(Seed)
     # normal_distribution = numpy.random.normal(mean, dev, N)
@@ -444,6 +453,7 @@ def get_min_distribution(N,Seed):
 
 
 min_distribution = get_min_distribution(500,1)
+print(min_distribution)
 
 normal_params = get_Normal_distribution_params(min_distribution)
 print("normal_params: ", normal_params)
@@ -455,6 +465,8 @@ gumbel_params = get_Gumbel_distribution_params(min_distribution)
 print("gumbel_params: ", gumbel_params)
 exponential_params = get_Exponential_distribution_params(min_distribution)
 print("exponential_params: ", exponential_params)
+gumbel_min_params = get_gumbel_min_params(min_distribution)
+print("gumbel_min_params: ", gumbel_min_params)
 
 # print("#######################################################################")
 # #B
@@ -474,12 +486,14 @@ exponential_values[exponential_values<0]=0
 gumbel_values = get_Gumbel_distribution_simulation_values(uniform,gumbel_params[0],gumbel_params[1])
 gumbel_values = numpy.array(gumbel_values)
 gumbel_values[gumbel_values<0]=0
+gumbel_min_values = numpy.random.gumbel(loc=gumbel_min_params[0],scale=gumbel_min_params[1],size=500)
 
 print("normal - " , st.stats.ks_2samp(min_distribution,normal_values))
 print("logarithmic - " , st.stats.ks_2samp(min_distribution,logarithmic_values))
 print("weibull - " , st.stats.ks_2samp(min_distribution,weibull_values))
 print("exponential - " , st.stats.ks_2samp(min_distribution,exponential_values))
 print("gumbel - " , st.stats.ks_2samp(min_distribution,gumbel_values))
+print("gumbel_min - ", st.stats.ks_2samp(min_distribution,gumbel_min_values))
 print("#########################################################################")
 
 def get_interval_frequencies(array_x,array_y):
