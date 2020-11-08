@@ -483,18 +483,34 @@ print("gumbel - " , st.stats.ks_2samp(min_distribution,gumbel_values))
 print("#########################################################################")
 
 def get_interval_frequencies(array_x,array_y):
-    return 0
+    min=numpy.amin([numpy.amin(array_x),numpy.amin(array_y)])
+    max=numpy.amax([numpy.amax(array_x),numpy.amax(array_y)])
+    intervals=numpy.linspace(min,max,num=5)
+    print(intervals)
+    min_array, _ = numpy.histogram(array_x, bins=intervals)
+    print(min_array)
+    list_array, _ =numpy.histogram(array_y, bins=intervals)
+    print((list_array))
 
-stat, p, dof, expected = st.chi2_contingency([min_distribution,normal_values])
-print("normal chi - " , " p -" ,p)
-stat, p, dof, expected = st.chi2_contingency([min_distribution,logarithmic_values])
-print("logarithmic chi - " , " p -" ,p)
-stat, p, dof, expected = st.chi2_contingency([min_distribution,weibull_values])
-print("weibull chi - " , " p -" ,p)
-stat, p, dof, expected = st.chi2_contingency([min_distribution,exponential_values])
-print("exponential chi - " , " p -" ,p)
-stat, p, dof, expected = st.chi2_contingency([min_distribution,gumbel_values])
-print("gumbel chi - " , " p -" ,p)
+    return min_array,list_array
+
+
+
+min_histog,normal_histo=get_interval_frequencies(min_distribution,normal_values)
+# stat, p, dof, expected = st.chisquare(min_histog,f_exp=normal_histo)
+print("normal chi - " , " p -" ,st.chisquare(min_histog,f_exp=normal_histo))
+min_histog,log_histo=get_interval_frequencies(min_distribution,logarithmic_values)
+# stat, p, dof, expected = st.chisquare(min_histog,f_exp=log_histo)
+print("logarithmic chi - " , " p -" ,st.chisquare(min_histog,f_exp=log_histo))
+min_histog,weibull_histo=get_interval_frequencies(min_distribution,weibull_values)
+# stat, p, dof, expected = st.chisquare(min_histog,f_exp=weibull_histo)
+print("weibull chi - " , " p -" ,st.chisquare(min_histog,f_exp=weibull_histo))
+min_histog,expo_histo=get_interval_frequencies(min_distribution,exponential_values)
+# stat, p, dof, expected = st.chisquare(min_histog,f_exp=expo_histo)
+print("exponential chi - " , " p -" ,st.chisquare(min_histog,f_exp=expo_histo))
+min_histog,gumbel_histo=get_interval_frequencies(min_distribution,exponential_values)
+# stat, p, dof, expected = st.chisquare(min_histog,f_exp=gumbel_histo)
+print("gumbel chi - " , " p -" ,st.chisquare(min_histog,f_exp=gumbel_histo))
 
 print("##################################################################################")
 
